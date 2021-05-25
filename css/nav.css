@@ -1,0 +1,124 @@
+nav {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    z-index: 9995;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+nav.topfixed {
+    background-color: rgba(100,140,100,1);
+    /*mix-blend-mode: multiply;*/
+}
+
+nav.topfixed .navigation li a {
+}
+
+nav a {
+    display: block;
+    cursor: pointer;
+}
+
+nav .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    margin: auto;
+}
+
+.navigation ul {
+    font-size: 1em;
+    letter-spacing: .05em;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.logo {
+    background-color: rgba(200,145,100,1);
+    filter: drop-shadow(3px 3px 8px #444);
+    mix-blend-mode: hard-light;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.navigation ul li {
+    display: inline-block;
+}
+
+.navigation li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px;
+    font-size: .8rem;
+}
+
+.navigation button {
+    background: none;
+    border: none;
+    outline: none;
+    display: none; 
+}
+
+@media screen and (max-width: 100px) {
+    
+    nav .navbar {
+        align-items: center;
+        justify-content: flex-end;
+    }
+    
+    nav.topfixed .navigation li a {
+        color: #fff;
+    }
+
+    .navigation button {
+        position: relative;
+        display: block;
+        margin: 0;
+        z-index: 9999;
+    }
+    
+    .navigation ul {
+        background-color: rgba(10,10,10,.8);
+        position: absolute;
+        padding: 100px 30px 30px 20px;
+        display: flex;
+        flex-direction: column;
+        right: 0;
+        top: 0;
+        min-width: 50%;
+        min-height: 100vh;
+        transform: translateX(100%);
+        transition: all 0.5s;
+        opacity:0;
+        transition-property: transform;
+        transition-duration: .35s;
+/*        transition-delay: .2s;*/
+        transition-timing-function: ease;
+        z-index: 9998;
+    }
+    
+    .navigation.open ul {
+        transform: translateX(0);
+        opacity:1;
+    }
+    
+    .navigation.open .overlay {
+        background-color: rgba(10,10,10, .3);
+        display: block;
+        position: absolute;
+        left:0;
+        top:0;
+        width:100%;
+        min-height: 100vh;
+        z-index: 99;
+    }
+}
